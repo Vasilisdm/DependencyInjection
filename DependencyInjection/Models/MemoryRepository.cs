@@ -5,18 +5,32 @@ namespace DependencyInjection.Models
 {
     public class MemoryRepository : IRepository
     {
-        public Product this[string name] => throw new NotImplementedException();
+        private Dictionary<string, Product> products;
 
-        public IEnumerable<Product> Products => throw new NotImplementedException();
+        public MemoryRepository()
+        {
+            products = new Dictionary<string, Product>();
+
+            new List<Product>
+            {
+                new Product { Name = "Kayak", Price = 275M },
+                new Product { Name = "Lifejacket", Price = 48.95M },
+                new Product { Name = "Soccer ball", Price = 19.50M }
+            }.ForEach(p => AddProduct(p));
+        }
+
+        public Product this[string name] => products[name];
+
+        public IEnumerable<Product> Products => products.Values;
 
         public void AddProduct(Product product)
         {
-            throw new NotImplementedException();
+            products[product.Name] = product;
         }
 
         public void DeleteProduct(Product product)
         {
-            throw new NotImplementedException();
+            products.Remove(product.Name);
         }
     }
 }
