@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DependencyInjection", "DependencyInjection\DependencyInjection.csproj", "{1E624FAC-F159-4903-9889-02DDE4F4B3E2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DependencyInjection.Tests", "DependencyInjection.Tests\DependencyInjection.Tests.csproj", "{60697132-5016-4698-8D17-820FC5DF605F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,5 +15,9 @@ Global
 		{1E624FAC-F159-4903-9889-02DDE4F4B3E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1E624FAC-F159-4903-9889-02DDE4F4B3E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1E624FAC-F159-4903-9889-02DDE4F4B3E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60697132-5016-4698-8D17-820FC5DF605F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60697132-5016-4698-8D17-820FC5DF605F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60697132-5016-4698-8D17-820FC5DF605F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60697132-5016-4698-8D17-820FC5DF605F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
