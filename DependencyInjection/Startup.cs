@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
+using DependencyInjection.Models;
+using DependencyInjection.Infrastructure;
 
 namespace DependencyInjection
 {
@@ -15,6 +17,7 @@ namespace DependencyInjection
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            TypeBroker.SetRepositoryType<AlternateRepository>();
             services.AddMvc();
         }
 

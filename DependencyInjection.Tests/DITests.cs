@@ -1,4 +1,5 @@
 ﻿using DependencyInjection.Controllers;
+using DependencyInjection.Infrastructure;
 using DependencyInjection.Models;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
@@ -16,13 +17,11 @@ namespace DependencyInjection.Tests
             var mockRepository = new Mock<IRepository>();
             mockRepository.SetupGet(m => m.Products).Returns(data);
 
-            HomeController controller = new HomeController
-            {
-                Repository = mockRepository.Object
-            };
+            TypeBroker.SetTestObject(mockRepository.Object);
+            HomeController cntrl = new HomeController();
 
             // Act
-            ViewResult result = controller.Index();
+            ViewResult result = cntrl.Index();
 
             // Assert
             Assert.Equal(data, result.ViewData.Model);
