@@ -17,7 +17,8 @@ namespace DependencyInjection.Controllers
 
         public ViewResult Index()
         {
-            ViewBag.Total = _totalizer.Total;
+            ViewBag.HomeController = _repository.ToString();
+            ViewBag.Total = _totalizer.Repository.ToString();
             return View(_repository.Products);
         }
     }
