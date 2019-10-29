@@ -10,7 +10,7 @@ namespace DependencyInjection.Models
 
         public MemoryRepository(IModelStorage modelStore)
         {
-            modelStore = _storage;
+            _storage = modelStore;
             new List<Product>
             {
                 new Product { Name = "Kayak", Price = 275M },
