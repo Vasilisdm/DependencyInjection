@@ -15,10 +15,10 @@ namespace DependencyInjection.Controllers
             _totalizer = total;
         }
 
-        public ViewResult Index()
+        public ViewResult Index([FromServices]ProductTotalizer totalizer)
         {
             ViewBag.HomeController = _repository.ToString();
-            ViewBag.Total = _totalizer.Repository.ToString();
+            ViewBag.Total = totalizer.Repository.ToString();
             return View(_repository.Products);
         }
     }
