@@ -19,19 +19,19 @@ namespace DependencyInjection
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddTransient<IRepository>(provider =>
-            {
-                if (_env.IsDevelopment())
-                {
-                    var x = provider.GetService<MemoryRepository>();
-                    return x;
-                }
-                else
-                {
-                    return new AlternateRepository();
-                }
-            });
-            services.AddTransient<MemoryRepository>();
+            //services.AddTransient<IRepository>(provider =>
+            //{
+            //    if (_env.IsDevelopment())
+            //    {
+            //        var x = provider.GetService<MemoryRepository>();
+            //        return x;
+            //    }
+            //    else
+            //    {
+            //        return new AlternateRepository();
+            //    }
+            //});
+            services.AddScoped<IRepository, MemoryRepository>();
             services.AddTransient<IModelStorage, DictionaryStorage>();
             services.AddTransient<ProductTotalizer>();
             services.AddMvc();
