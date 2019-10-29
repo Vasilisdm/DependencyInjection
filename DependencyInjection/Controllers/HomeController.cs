@@ -17,6 +17,7 @@ namespace DependencyInjection.Controllers
 
         public ViewResult Index([FromServices]ProductTotalizer totalizer)
         {
+            //IRepository repository = HttpContext.RequestServices.GetService<IRepository>();
             ViewBag.HomeController = _repository.ToString();
             ViewBag.Total = totalizer.Repository.ToString();
             return View(_repository.Products);
