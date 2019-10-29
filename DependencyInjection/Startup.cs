@@ -13,11 +13,25 @@ namespace DependencyInjection
 {
     public class Startup
     {
-        // This method gets called by the runtime. Use this method to add services to the container.
-        // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
+        private IHostingEnvironment _env;
+
+        public Startup(IHostingEnvironment hostEnv) => _env = hostEnv;
+
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddTransient<IRepository, MemoryRepository>();
+            services.AddTransient<IRepository>(provider =>
+            {
+                if (_env.IsDevelopment())
+                {
+                    var x = provider.GetService<MemoryRepository>();
+                    return x;
+                }
+                else
+                {
+                    return new AlternateRepository();
+                }
+            });
+            services.AddTransient<MemoryRepository>();
             services.AddTransient<IModelStorage, DictionaryStorage>();
             services.AddTransient<ProductTotalizer>();
             services.AddMvc();
